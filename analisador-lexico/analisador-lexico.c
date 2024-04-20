@@ -7,76 +7,74 @@
 #define TAMANHO_PALAVRA 50
 
 // tipos de token
-#define TOK_PCHAVE                              1
-#define TOK_ID                                  4
-#define TOK_NUM                                 5
-#define TOK_PONT                                6
-#define TOK_OP                                  7
-#define TOK_STRING                              8
-#define TOK_PROLOGO                             9
-#define TOK_ERRO                                100
+#define TOK_PCHAVE                  1
+#define TOK_ID                      4
+#define TOK_NUM                     5
+#define TOK_PONT                    6
+#define TOK_OP                      7
+
 
 // valores de palavra chave (palavra reservada)
-#define PC_PROGRAM                              0
-#define PC_VAR                                  1
-#define PC_PROCEDURE                            2
-#define PC_FUNCTION                             3
-#define PC_BEGIN                                4
-#define PC_END                                  5
-#define PC_IF                                   6
-#define PC_THEN                                 7
-#define PC_ELSE                                 8
-#define PC_WHILE                                9
-#define PC_DO                                   10
-#define PC_REPEAT                               11
-#define PC_UNTIL                                12
-#define PC_FOR                                  13
-#define PC_TO                                   14
-#define PC_DOWNTO                               15
-#define PC_CASE                                 16
-#define PC_OF                                   17
-#define PC_WITH                                 18
-#define PC_ARRAY                                19
-#define PC_SET                                  20
-#define PC_FILE                                 21
-#define PC_LABEL                                22
-#define PC_CONST                                23
-#define PC_TYPE                                 24
-#define PC_PROCEDURE_LABEL                      25
-#define PC_FORWARD                              26
-#define PC_EXTERNAL                             27
-#define PC_LOCAL                                28
-#define PC_INTEGER                              29
+#define PC_PROGRAM                  0
+#define PC_VAR                      1
+#define PC_PROCEDURE                2
+#define PC_FUNCTION                 3
+#define PC_BEGIN                    4
+#define PC_END                      5
+#define PC_IF                       6
+#define PC_THEN                     7
+#define PC_ELSE                     8
+#define PC_WHILE                    9
+#define PC_DO                       10
+#define PC_REPEAT                   11
+#define PC_UNTIL                    12
+#define PC_FOR                      13
+#define PC_TO                       14
+#define PC_DOWNTO                   15
+#define PC_CASE                     16
+#define PC_OF                       17
+#define PC_WITH                     18
+#define PC_ARRAY                    19
+#define PC_SET                      20
+#define PC_FILE                     21
+#define PC_LABEL                    22
+#define PC_CONST                    23
+#define PC_TYPE                     24
+#define PC_PROCEDURE_LABEL          25
+#define PC_FORWARD                  26
+#define PC_EXTERNAL                 27
+#define PC_LOCAL                    28
+#define PC_INTEGER                  29
 
 // valores de pontuação
-#define PARESQ                                  1
-#define PARDIR                                  2
-#define CHVESQ                                  3
-#define CHVDIR                                  4
-#define VIRG                                    5
-#define PNTVIRG                                 6
-#define DPONT                                   7
-#define PONT                                    8
+#define PARESQ                      1
+#define PARDIR                      2
+#define CHVESQ                      3
+#define CHVDIR                      4
+#define VIRG                        5
+#define PNTVIRG                     6
+#define DPONT                       7
+#define PONT                        8
 
 // valores de operadores
-#define SOMA                                    1
-#define SUB                                     2
-#define MULT                                    3
-#define DIV                                     4
-#define MENOR                                   5
-#define IGUAL                                   6
-#define DIF                                     7
-#define MENORIG                                 8
-#define MAIOR                                   9
-#define MAIORIG                                 10
-#define E                                       11
-#define OU                                      12
-#define ATRIB                                   13
+#define SOMA                        1
+#define SUB                         2
+#define MULT                        3
+#define DIV                         4
+#define MENOR                       5
+#define IGUAL                       6
+#define DIF                         7
+#define MENORIG                     8
+#define MAIOR                       9
+#define MAIORIG                     10
+#define E                           11
+#define OU                          12
+#define ATRIB                       13
 
 // definição dos tipos
-#define NUM                                     14
-#define ID                                      15
-#define STRING                                  16
+#define NUM                         14
+#define ID                          15
+#define STRING                      16
 
 // struct de token
 typedef struct {
@@ -307,14 +305,6 @@ void imprime_token(Token *tok, FILE *arquivo) {
 	char *tipo;
 
 	switch (tok->tipo) {
-		case TOK_PCHAVE:
-			tipo = "palavra chave";
-			break;
-
-		case TOK_ID:
-			tipo = "identificador";
-			break;
-
 		case TOK_NUM:
 			tipo = "numero";
 			break;
@@ -327,16 +317,12 @@ void imprime_token(Token *tok, FILE *arquivo) {
 			tipo = "operador";
 			break;
 
-		case TOK_STRING:
-			tipo = "string";
+		case TOK_ID:
+			tipo = "identificador";
 			break;
 
-		case TOK_PROLOGO:
-			tipo = "prologo";
-			break;
-
-		case TOK_ERRO:
-			tipo = "erro";
+		case TOK_PCHAVE:
+			tipo = "palavra chave";
 			break;
 
 		default:
@@ -345,6 +331,7 @@ void imprime_token(Token *tok, FILE *arquivo) {
 
 	fprintf(arquivo, "tipo: %s - - - - valor: %d\n", tipo, tok->valor);
 }
+
 
 
 
