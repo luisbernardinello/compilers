@@ -83,7 +83,7 @@ typedef struct {
 } Token;
 
 
-
+int contador_identificador = 0; //identificadores terão valores negativos
 char proximo_caractere = ' ';
 int linha = 1;
 FILE *input;
@@ -107,7 +107,7 @@ void proximo(FILE *arquivo) {
 	c = fgetc(arquivo);
 	if (c == '\n') {
 		linha++;
-		
+
 		printf("analise da linha %d feita sem erros.\n", linha - 1);
 	}
 	if (feof(arquivo)) {
@@ -287,14 +287,15 @@ Token *codigo(char *lexema, FILE *output) {
 	} else if (strcmp(lexema, ".") == 0) {
 		token->tipo = TOK_PONT;
 		token->valor = PONT;
-	}else if (isdigit(lexema[0])) {
+	} else if (isdigit(lexema[0])) {
 		// isdigit para verificar se se trata de um numero
 		token->tipo = TOK_NUM;
 		token->valor = atoi(lexema);
 	} else {
-		// se nao for palavra chave se trata de um identificador e recebe valor -1
+		// se nao for palavra chave se trata de um identificador e recebe valor negativo iniciando em -1 no primeiro caso
 		token->tipo = TOK_ID;
-		token->valor = -1; 
+		contador_identificador--;
+		token->valor = contador_identificador;
 	}
 
 	return token;
@@ -336,142 +337,142 @@ void imprime_token(Token *tok, FILE *arquivo) {
 
 
 int main() {
-    output = fopen("Output.txt", "w");
-    inicializa_analise("Trab1_Compiladores.txt");
+	output = fopen("Output.txt", "w");
+	inicializa_analise("Trab1_Compiladores.txt");
 //    inicializa_analise("Trab1_Compiladores_ExemploErro.txt");
 
-    if (output == NULL) {
-        printf("erro gerado ao abrir o arquivo\n");
-        return 1;
-    }
+	if (output == NULL) {
+		printf("erro gerado ao abrir o arquivo\n");
+		return 1;
+	}
 
-    while (!feof(input)) {
-        
-        char lexema[TAMANHO_PALAVRA] = {0};
-        Token *token = NULL;
+	while (!feof(input)) {
 
-        // ignorar os tipos de espaço em branco
-        while ((proximo_caractere == ' ' || proximo_caractere == '\t' || proximo_caractere == '\n')) {
-            proximo(input);
-        }
+		char lexema[TAMANHO_PALAVRA] = {0};
+		Token *token = NULL;
 
-        if (feof(input)) {
-            fclose(output);
-            exit(0);
-        }
+		// ignorar os tipos de espaço em branco
+		while ((proximo_caractere == ' ' || proximo_caractere == '\t' || proximo_caractere == '\n')) {
+			proximo(input);
+		}
 
-        // isalpha verifica se o próximo caractere é uma letra
-        if (isalpha(proximo_caractere)) {
-            int i = 0;
-            // inicia a formação de um lexema de palavra chave ou identificador
-            while (isalpha(proximo_caractere) || isdigit(proximo_caractere)) {
-                lexema[i++] = proximo_caractere;
-                proximo(input);
-            }
-            // classifica o lexema como palavra chave ou identificador
-            token = codigo(lexema, output);
-        } else if (isdigit(proximo_caractere)) {
-            int i = 0;
-            // inicia a formação de um lexema numero
-            while (isdigit(proximo_caractere)) {
-                
-                lexema[i++] = proximo_caractere;
-                proximo(input);
-                if(isalpha(proximo_caractere)) {
-                    erro("Identificador mal formado", input);
-                }
-            }
-            // classifica o lexema como numero
-            token = codigo(lexema, output);
-            
-            //inicio das classificações de simbolos, pontuação e simbolos compostos
-        } else if (proximo_caractere == ',' || proximo_caractere == ';' || proximo_caractere == '*') {
-            
-            lexema[0] = proximo_caractere;
-            lexema[1] = '\0';
-            token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-            
-        } else if (proximo_caractere == ':') {
-            // simbolo composto de operador de atribuição :=
-            proximo(input);
-            if (proximo_caractere == '=') {
-                lexema[0] = ':';
-                lexema[1] = '=';
-                lexema[2] = '\0';
-                token = codigo(lexema, output);
-                // avança o caractere
-                proximo(input);
-            } else {
-                lexema[0] = ':';
-                lexema[1] = '\0';
-                token = codigo(lexema, output);
-            }
-        } else if (proximo_caractere == '(') {
-            lexema[0] = '(';
-            lexema[1] = '\0';
-            token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-        } else if (proximo_caractere == ')') {
-            lexema[0] = ')';
-            lexema[1] = '\0';
-            token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-        } else if (proximo_caractere == '=') {
-            lexema[0] = '=';
-            lexema[1] = '\0';
-            token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-        } else if (proximo_caractere == '+') {
-        	lexema[0] = '+';
-        	lexema[1] = '\0';
-        	token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
+		if (feof(input)) {
+			fclose(output);
+			exit(0);
+		}
+
+		// isalpha verifica se o próximo caractere é uma letra
+		if (isalpha(proximo_caractere)) {
+			int i = 0;
+			// inicia a formação de um lexema de palavra chave ou identificador
+			while (isalpha(proximo_caractere) || isdigit(proximo_caractere)) {
+				lexema[i++] = proximo_caractere;
+				proximo(input);
+			}
+			// classifica o lexema como palavra chave ou identificador
+			token = codigo(lexema, output);
+		} else if (isdigit(proximo_caractere)) {
+			int i = 0;
+			// inicia a formação de um lexema numero
+			while (isdigit(proximo_caractere)) {
+
+				lexema[i++] = proximo_caractere;
+				proximo(input);
+				if(isalpha(proximo_caractere)) {
+					erro("Identificador mal formado", input);
+				}
+			}
+			// classifica o lexema como numero
+			token = codigo(lexema, output);
+
+			//inicio das classificações de simbolos, pontuação e simbolos compostos
+		} else if (proximo_caractere == ',' || proximo_caractere == ';' || proximo_caractere == '*') {
+
+			lexema[0] = proximo_caractere;
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+
+		} else if (proximo_caractere == ':') {
+			// simbolo composto de operador de atribuição :=
+			proximo(input);
+			if (proximo_caractere == '=') {
+				lexema[0] = ':';
+				lexema[1] = '=';
+				lexema[2] = '\0';
+				token = codigo(lexema, output);
+				// avança o caractere
+				proximo(input);
+			} else {
+				lexema[0] = ':';
+				lexema[1] = '\0';
+				token = codigo(lexema, output);
+			}
+		} else if (proximo_caractere == '(') {
+			lexema[0] = '(';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+		} else if (proximo_caractere == ')') {
+			lexema[0] = ')';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+		} else if (proximo_caractere == '=') {
+			lexema[0] = '=';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+		} else if (proximo_caractere == '+') {
+			lexema[0] = '+';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
 		} else if (proximo_caractere == '-') {
-        	lexema[0] = '-';
-        	lexema[1] = '\0';
-        	token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
+			lexema[0] = '-';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
 		} else if (proximo_caractere == '<') {
-        	lexema[0] = '<';
-        	lexema[1] = '\0';
-        	token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-        } else if (proximo_caractere == '>') {
-        	lexema[0] = '>';
-        	lexema[1] = '\0';
-        	token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-        } else if (proximo_caractere == '.') {
-        	lexema[0] = '.';
-        	lexema[1] = '\0';
-        	token = codigo(lexema, output);
-            // avança o caractere
-            proximo(input);
-        } else {
-            // else se trata de um erro, caractere invalido
-            printf("erro durante analise da linha %d: caractere invalido (%c)\n", linha, proximo_caractere);
-            fclose(input);
-            fclose(output);
-            return 1;
-        }
+			lexema[0] = '<';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+		} else if (proximo_caractere == '>') {
+			lexema[0] = '>';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+		} else if (proximo_caractere == '.') {
+			lexema[0] = '.';
+			lexema[1] = '\0';
+			token = codigo(lexema, output);
+			// avança o caractere
+			proximo(input);
+		} else {
+			// else se trata de um erro, caractere invalido
+			printf("erro durante analise da linha %d: caractere invalido (%c)\n", linha, proximo_caractere);
+			fclose(input);
+			fclose(output);
+			return 1;
+		}
 
-        // imprime token
-        if (token != NULL) {
-            imprime_token(token, output);
-            free(token); 
-        }
-    }
+		// imprime token
+		if (token != NULL) {
+			imprime_token(token, output);
+			free(token);
+		}
+	}
 
-    fclose(input);
-    fclose(output);
-    return 0;
+	fclose(input);
+	fclose(output);
+	return 0;
 }
