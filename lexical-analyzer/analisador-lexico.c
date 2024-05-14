@@ -105,10 +105,12 @@ void inicializa_analise(char *nome_arq) {
 void proximo(FILE *arquivo) {
 	char c;
 	c = fgetc(arquivo);
+	
 	if (c == '\n') {
 		linha++;
 
 		printf("analise da linha %d feita sem erros.\n", linha - 1);
+		fprintf (output, "LINHA %d:\n  ", linha);
 	}
 	if (feof(arquivo)) {
 		fclose(input);
@@ -338,6 +340,8 @@ void imprime_token(Token *tok, FILE *arquivo) {
 
 int main() {
 	output = fopen("Output.txt", "w");
+	fprintf (output, "LINHA 1:\n  ");
+
 	inicializa_analise("Trab1_Compiladores.txt");
 //    inicializa_analise("Trab1_Compiladores_ExemploErro.txt");
 
