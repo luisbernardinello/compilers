@@ -12,7 +12,6 @@ tipo: identificador - - - - valor: -3
 tipo: pontuacao - - - - valor: 7
 tipo: palavra chave - - - - valor: 29
 LINHA 4:
-  tipo: pontuacao - - - - valor: 6
 tipo: palavra chave - - - - valor: 2
 tipo: identificador - - - - valor: -4
 LINHA 5:
