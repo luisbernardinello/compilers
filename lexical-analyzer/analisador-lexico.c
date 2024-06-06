@@ -47,7 +47,8 @@
 #define PC_INTEGER 29
 #define PC_BOOLEAN 30
 #define PC_DIV 31
-
+#define PC_READ 32
+#define PC_WRITE 33
 
 // valores de pontuação
 #define PARESQ 1
@@ -258,6 +259,12 @@ Token *codigo(char *lexema, FILE *output) {
     } else if (strcmp(lexema, "DIV") == 0) {
         token->tipo = TOK_PCHAVE;
         token->valor = PC_DIV;
+    } else if (strcmp(lexema, "READ") == 0) {
+        token->tipo = TOK_PCHAVE;
+        token->valor = PC_READ;
+    } else if (strcmp(lexema, "WRITE") == 0) {
+        token->tipo = TOK_PCHAVE;
+        token->valor = PC_WRITE;
     } else if (strcmp(lexema, "+") == 0) {
         token->tipo = TOK_OP;
         token->valor = SOMA;

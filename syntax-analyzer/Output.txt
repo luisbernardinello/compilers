@@ -1,6 +1,7 @@
 LINHA 1:
 tipo: palavra chave - - - - valor: 0
 tipo: identificador - - - - valor: 0
+tipo: pontuacao - - - - valor: 6
 LINHA 2:
 tipo: palavra chave - - - - valor: 1
 LINHA 3:
@@ -65,7 +66,7 @@ tipo: pontuacao - - - - valor: 6
 LINHA 13:
 tipo: palavra chave - - - - valor: 4
 LINHA 14:
-tipo: identificador - - - - valor: -6
+tipo: palavra chave - - - - valor: 32
 tipo: pontuacao - - - - valor: 1
 tipo: identificador - - - - valor: -1
 tipo: pontuacao - - - - valor: 2
@@ -92,7 +93,7 @@ LINHA 18:
 tipo: identificador - - - - valor: -4
 tipo: pontuacao - - - - valor: 6
 LINHA 19:
-tipo: identificador - - - - valor: -7
+tipo: palavra chave - - - - valor: 33
 tipo: pontuacao - - - - valor: 1
 tipo: identificador - - - - valor: -2
 tipo: pontuacao - - - - valor: 2
@@ -106,6 +107,7 @@ tipo: numero - - - - valor: 1
 tipo: pontuacao - - - - valor: 6
 LINHA 21:
 tipo: palavra chave - - - - valor: 5
+tipo: pontuacao - - - - valor: 6
 LINHA 22:
 tipo: palavra chave - - - - valor: 5
 tipo: pontuacao - - - - valor: 8

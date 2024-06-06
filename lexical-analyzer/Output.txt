@@ -1,7 +1,7 @@
 LINHA 1:
   tipo: palavra chave - - - - valor: 0
-LINHA 2:
   tipo: identificador - - - - valor: 0
+LINHA 2:
 tipo: palavra chave - - - - valor: 1
 LINHA 3:
   tipo: identificador - - - - valor: -1
@@ -11,27 +11,27 @@ tipo: pontuacao - - - - valor: 5
 tipo: identificador - - - - valor: -3
 tipo: pontuacao - - - - valor: 7
 tipo: palavra chave - - - - valor: 29
+tipo: pontuacao - - - - valor: 6
 LINHA 4:
-  tipo: pontuacao - - - - valor: 6
 tipo: palavra chave - - - - valor: 2
 tipo: identificador - - - - valor: -4
+tipo: pontuacao - - - - valor: 6
 LINHA 5:
-  tipo: pontuacao - - - - valor: 6
 tipo: palavra chave - - - - valor: 1
 tipo: identificador - - - - valor: -5
 tipo: pontuacao - - - - valor: 7
 tipo: palavra chave - - - - valor: 29
+tipo: pontuacao - - - - valor: 6
 LINHA 6:
-  tipo: pontuacao - - - - valor: 6
+tipo: palavra chave - - - - valor: 4
 LINHA 7:
-  tipo: palavra chave - - - - valor: 4
 tipo: identificador - - - - valor: -5
 tipo: operador - - - - valor: 13
 tipo: identificador - - - - valor: -3
 tipo: operador - - - - valor: 3
 tipo: identificador - - - - valor: -3
+tipo: pontuacao - - - - valor: 6
 LINHA 8:
-  tipo: pontuacao - - - - valor: 6
 tipo: palavra chave - - - - valor: 6
 tipo: pontuacao - - - - valor: 1
 tipo: identificador - - - - valor: -3
@@ -42,35 +42,35 @@ tipo: operador - - - - valor: 3
 tipo: numero - - - - valor: 2
 tipo: operador - - - - valor: 6
 tipo: identificador - - - - valor: -3
+tipo: palavra chave - - - - valor: 7
 LINHA 9:
-  tipo: palavra chave - - - - valor: 7
 tipo: identificador - - - - valor: -2
 tipo: operador - - - - valor: 13
 tipo: identificador - - - - valor: -2
 tipo: operador - - - - valor: 1
 tipo: identificador - - - - valor: -5
+tipo: pontuacao - - - - valor: 6
 LINHA 10:
-  tipo: pontuacao - - - - valor: 6
+tipo: palavra chave - - - - valor: 8
 LINHA 11:
-  tipo: palavra chave - - - - valor: 8
 tipo: identificador - - - - valor: -2
 tipo: operador - - - - valor: 13
 tipo: identificador - - - - valor: -2
 tipo: operador - - - - valor: 2
 tipo: identificador - - - - valor: -5
+tipo: pontuacao - - - - valor: 6
 LINHA 12:
-  tipo: pontuacao - - - - valor: 6
 tipo: palavra chave - - - - valor: 5
+tipo: pontuacao - - - - valor: 6
 LINHA 13:
-  tipo: pontuacao - - - - valor: 6
+tipo: palavra chave - - - - valor: 4
 LINHA 14:
-  tipo: palavra chave - - - - valor: 4
 tipo: identificador - - - - valor: -6
 tipo: pontuacao - - - - valor: 1
 tipo: identificador - - - - valor: -1
 tipo: pontuacao - - - - valor: 2
+tipo: pontuacao - - - - valor: 6
 LINHA 15:
-  tipo: pontuacao - - - - valor: 6
 tipo: identificador - - - - valor: -2
 tipo: operador - - - - valor: 13
 tipo: numero - - - - valor: 0
@@ -78,37 +78,36 @@ tipo: pontuacao - - - - valor: 6
 tipo: identificador - - - - valor: -3
 tipo: operador - - - - valor: 13
 tipo: numero - - - - valor: 0
+tipo: pontuacao - - - - valor: 6
 LINHA 16:
-  tipo: pontuacao - - - - valor: 6
 tipo: palavra chave - - - - valor: 9
 tipo: identificador - - - - valor: -3
 tipo: operador - - - - valor: 5
 tipo: operador - - - - valor: 6
 tipo: identificador - - - - valor: -1
+tipo: palavra chave - - - - valor: 10
 LINHA 17:
-  tipo: palavra chave - - - - valor: 10
 tipo: palavra chave - - - - valor: 4
 LINHA 18:
-  tipo: identificador - - - - valor: -4
+tipo: identificador - - - - valor: -4
+tipo: pontuacao - - - - valor: 6
 LINHA 19:
-  tipo: pontuacao - - - - valor: 6
 tipo: identificador - - - - valor: -7
 tipo: pontuacao - - - - valor: 1
 tipo: identificador - - - - valor: -2
 tipo: pontuacao - - - - valor: 2
+tipo: pontuacao - - - - valor: 6
 LINHA 20:
-  tipo: pontuacao - - - - valor: 6
 tipo: identificador - - - - valor: -3
 tipo: operador - - - - valor: 13
 tipo: identificador - - - - valor: -3
 tipo: operador - - - - valor: 1
 tipo: numero - - - - valor: 1
+tipo: pontuacao - - - - valor: 6
 LINHA 21:
-  tipo: pontuacao - - - - valor: 6
-LINHA 22:
-  tipo: palavra chave - - - - valor: 5
 tipo: palavra chave - - - - valor: 5
+LINHA 22:
+tipo: palavra chave - - - - valor: 5
+tipo: pontuacao - - - - valor: 8
 LINHA 23:
-  tipo: pontuacao - - - - valor: 8
-LINHA 24:
   
