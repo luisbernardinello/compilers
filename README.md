@@ -1,4 +1,4 @@
-# Pascal Compiler Implementation
+# A Simple Compiler Implementation
 
 ![Unesp](https://img.shields.io/badge/BCC-UNESP-Bauru.svg)
 ![License](https://img.shields.io/badge/Code%20License-MIT-blue.svg)
@@ -24,7 +24,7 @@ The analyzer generates a token stream with type and value information for each t
 
 ### 2. Syntax Analyzer
 
-The syntax analyzer implements a recursive descent parser for a simplified Pascal grammar, supporting:
+The syntax analyzer implements a parser for a simplified Pascal grammar, supporting:
 
 - Program structure validation
 - Variable declarations
@@ -42,7 +42,7 @@ The implementation includes a symbol table that:
 - Distinguishes between regular identifiers and procedure identifiers
 - Supports lookups for semantic validation
 
-## 🚀 Implementation Details
+## Implementation Details
 
 ### Lexical Analysis
 
@@ -70,18 +70,6 @@ The parser follows the recursive descent method, with specific functions for eac
 
 - GCC or compatible C compiler
 - Basic understanding of compiler design concepts
-
-### Building the Project
-
-```bash
-# Compile the project
-gcc -o pascal_compiler main.c -Wall
-
-# Run the compiler
-./pascal_compiler input.pas
-```
-
-The compiler processes an input Pascal file and performs both lexical and syntactic analysis.
 
 ## 📋 Project Structure
 
